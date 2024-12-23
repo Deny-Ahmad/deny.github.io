@@ -3,66 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Profile App</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Responsive Mobile View Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .language-switcher {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .language-button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .language-button:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .language-button {
+                width: 100%; /* Full width on small screens */
+                margin: 5px 0; /* Stack buttons vertically */
+            }
+            header {
+                font-size: 1.5em; /* Larger header text on mobile */
+            }
+            .content h2 {
+                font-size: 1.2em; /* Smaller title on mobile */
+            }
+            .content p {
+                font-size: 0.9em; /* Smaller paragraph text on mobile */
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="app-container">
-        <div class="header">
-            <h1>Gaming Profile</h1>
-        </div>
 
-        <div class="profile-card">
-            <img src="your-character-image.jpg" alt="Character Name" class="profile-image">
-            <h2 class="profile-name">Character Name</h2>
-            <p class="profile-class">Class: Warrior</p>
-            <p class="profile-level">Level: 25</p>
+<header>
+    <h1>My Language Switcher Example</h1>
+</header>
 
-            <div class="carousel">
-                <div class="carousel-slides">
-                    <div class="slide active stats-slide">
-                        <h3>Stats</h3>
-                        <ul>
-                            <li><strong>Health:</strong> 1500</li>
-                            <li><strong>Attack:</strong> 300</li>
-                            <li><strong>Defense:</strong> 250</li>
-                            <li><strong>Speed:</strong> 120</li>
-                        </ul>
-                    </div>
+<div class="language-switcher">
+    <button class="language-button" onclick="switchLanguage('en')">English</button>
+    <button class="language-button" onclick="switchLanguage('jp')">日本語 (Japanese)</button>
+</div>
 
-                    <div class="slide skills-slide">
-                        <h3>Skills</h3>
-                        <ul>
-                            <li>Heavy Strike</li>
-                            <li>Shield Block</li>
-                            <li>Battle Roar</li>
-                        </ul>
-                    </div>
+<div class="content" id="content">
+    <h2 id="title">Welcome to My Website</h2>
+    <p id="description">This is a simple example of a language switcher.</p>
+</div>
 
-                    <div class="slide achievements-slide">
-                        <h3>Achievements</h3>
-                        <ul>
-                            <li>Defeated the Dragon King</li>
-                            <li>Completed the Quest of Legends</li>
-                            <li>Master of the Arena</li>
-                        </ul>
-                    </div>
-                </div>
+<script>
+    function switchLanguage(lang) {
+        const title = document.getElementById('title');
+        const description = document.getElementById('description');
 
-                <div class="carousel-buttons">
-                    <button class="carousel-button prev" onclick="changeSlide(-1)">&#10094;</button>
-                    <button class="carousel-button next" onclick="changeSlide(1)">&#10095;</button>
-                </div>
-            </div>
-        </div>
+        if (lang === 'en') {
+            title.textContent = 'Welcome to My Website';
+            description.textContent = 'This is a simple example of a language switcher.';
+        } else if (lang === 'jp') {
+            title.textContent = '私のウェブサイトへようこそ';
+            description.textContent = 'これは言語切り替えの簡単な例です。';
+        }
+    }
+</script>
 
-        <div class="footer">
-            <button class="footer-button" onclick="showSlide('stats')">Stats</button>
-            <button class="footer-button" onclick="showSlide('skills')">Skills</button>
-            <button class="footer-button" onclick="showSlide('achievements')">Achievements</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
